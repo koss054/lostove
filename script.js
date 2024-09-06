@@ -1,6 +1,13 @@
 const map = L.map('map');
 const geolocation = navigator.geolocation;
 const addToggle = document.getElementById('add-toggle');
+const lostPlaceholder = L.icon({
+    iconUrl: 'images/placeholder.png',
+    iconSize: [50, 50],
+    iconAnchor: [25, 25],
+    popupAnchor: [140, 37.5],
+});
+
 let addToggled = false;
 
 geolocation.getCurrentPosition(function success(result) {
@@ -19,18 +26,26 @@ function onMarkerClick(e) {
 }
 
 function onMapClick(e) {
-    console.log(e.latlng);
-
     if (!addToggled) return;
 
     const markerOptions = {
         title: 'Test Title',
         riseOnHover: true,
+        icon: lostPlaceholder,
     };
 
     const marker = L.marker(e.latlng, markerOptions)
         .on('click', onMarkerClick)
-        .addTo(map);
+        .addTo(map)
+        .bindPopup(
+            L.popup({
+                maxWidth: 250,
+                minWidth: 100,
+                autoClose: false,
+                closeOnClick: false,
+                className: 'popup-lostove',
+            }),
+        );
 }
 
 function onAddToggleClick(e) {

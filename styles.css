@@ -58,3 +58,9 @@
     width: 75vw;
     z-index: 0;
 }
+
+.leaflet-popup-content-wrapper {
+    background-color: black;
+    height: 50px;
+    width: 15rem;
+}
