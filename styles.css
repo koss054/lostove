@@ -1,0 +1,32 @@
+:root {
+    --eerie-black: #222222ff;
+    --linen: #f7ede2ff;
+    --ultra-violet: #4b4e6dff;
+    --lilac: #be95c4ff;
+    --sky-magenta: #ce84adff;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.map--section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#panel {
+    height: 100vh;
+    width: 25vw;
+    background-color: var(--linen);
+    border-right: solid var(--sky-magenta) 0.25vw;
+}
+
+#map {
+    height: 100vh;
+    width: 75vw;
+}
